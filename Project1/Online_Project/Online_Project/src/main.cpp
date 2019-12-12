@@ -10,7 +10,7 @@ int main(int argc, char** argv)
 {
 	game = new Game();
 
-	game->init("Online Tech Multiplayer Project", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
+	game->init("Client 1", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
 
 	game->loadContent();
 

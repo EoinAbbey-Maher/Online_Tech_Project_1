@@ -58,6 +58,7 @@ void Dot::Init(SDL_Renderer* gRenderer, std::string t_texture)
 	}
 
 	updateServerPositionOut();
+	updateServerPosGet();
 }
 
 void Dot::handleEvent(SDL_Event& e)
@@ -74,32 +75,24 @@ void Dot::handleEvent(SDL_Event& e)
 			case SDLK_w: mVelY = -DOT_VEL;
 				mPosY += mVelY;
 				SetPosition(mPosX, mPosY);
-				
-				std::cout << "W Pressed" << std::endl;
 				updateServerPositionOut();
 				break;
 
 			case SDLK_s: mVelY = DOT_VEL;
 						mPosY += mVelY;
-
 						SetPosition(mPosX, mPosY);
-				std::cout << "S Pressed" << std::endl;
 				updateServerPositionOut();
 				break;
 
 			case SDLK_a: mVelX = -DOT_VEL;
-				mPosX -= mVelX;
+				mPosX += mVelX;
 				SetPosition(mPosX, mPosY);
-
-				std::cout << "A Pressed" << std::endl;
 				updateServerPositionOut();
 				break;
 
 			case SDLK_d: mVelX = DOT_VEL;
 				mPosX += mVelX;
 				SetPosition(mPosX, mPosY);
-
-				std::cout << "D Pressed" << std::endl;
 				updateServerPositionOut();
 				break;
 			}

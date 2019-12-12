@@ -114,24 +114,22 @@ void Game::update()
 {
 	m_player_One_Dot->move(m_windowHeight, m_windowWidth);
 	m_player_Two_Dot->move(m_windowHeight, m_windowWidth);
+
+	if (m_player_One_Dot->Checkcollision(m_player_Two_Dot->GetCenterX(), m_player_Two_Dot->GetCenterY()))
+	{
+		std::cout << "collision" << std::endl;
+	}
+
 	m_serverClient->m_recievedMessage = "";
 }
 
 void Game::render()
 {
 	SDL_RenderClear(m_renderer);
-	if (m_renderer != nullptr && m_texture != nullptr)
-	{
-		SDL_Rect* testRect = new SDL_Rect();
-		testRect->x = 0;
-		testRect->y = 0;
-		testRect->h = 32;
-		testRect->w = 32;
-		SDL_RenderCopy(m_renderer, m_texture, testRect , NULL);
-	}
 
-	m_player_One_Dot->render(m_renderer);
 	m_player_Two_Dot->render(m_renderer);
+	m_player_One_Dot->render(m_renderer);
+
 	SDL_RenderPresent(m_renderer);
 }
 
